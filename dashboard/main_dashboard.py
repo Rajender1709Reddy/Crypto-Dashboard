@@ -355,6 +355,19 @@ def main():
             "Value": [f"{drawdown.min():.2f}%", f"{coin_df['Volatility'].iloc[-1]:.2f}%", f"{coin_df['Daily_Return'].mean()*100:.2f}%"]
         }))
         render_common_components(df, global_symbol)
+            # ================= FOOTER ================= #
+    st.markdown("---")
+
+    st.markdown("""
+    <div style="text-align:center; padding: 20px;">
+        <h2>👤 Mucherla Rajender Reddy</h2>
+        <p style="color: #888;">Data Analyst | Crypto Dashboard Developer</p>
+        <p>🚀 Developed & Hosted using Streamlit</p>
+        <p>
+            🔗 <a href="https://github.com/Rajender1709Reddy" target="_blank">GitHub</a>
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
