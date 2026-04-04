@@ -1,11 +1,7 @@
+streamlit
 pandas
 numpy
-matplotlib
-seaborn
 plotly
-scikit-learn
-statsmodels
-prophet
-tensorflow-cpu
-streamlit
 yfinance
+requests
+scikit-learn
