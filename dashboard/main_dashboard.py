@@ -327,17 +327,17 @@ def main():
         render_common_components(df, global_symbol)
 
 
-    elif view_selection == "volatility" or view_selection == "risk indicators":
+        elif view_selection == "volatility" or view_selection == "risk indicators":
         st.title(f"Risk & Volatility Analysis ({global_symbol})")
-        
+
         cumulative_max = coin_df['Close'].cummax()
         drawdown = (coin_df['Close'] - cumulative_max) / cumulative_max * 100
-        
+
         fig_risk = go.Figure()
         fig_risk.add_trace(go.Scatter(x=coin_df.index, y=coin_df['Close'], name='Price', yaxis='y1', line=dict(color='#00D1FF')))
         fig_risk.add_trace(go.Scatter(x=coin_df.index, y=coin_df['Volatility'], name='Volatility', yaxis='y2', line=dict(color='#FF4B4B')))
         fig_risk.add_trace(go.Scatter(x=coin_df.index, y=drawdown, name='Drawdown', yaxis='y3', line=dict(color='#F1C40F')))
-        
+
         fig_risk.update_layout(
             template="plotly_white",
             height=700,
@@ -347,36 +347,17 @@ def main():
             showlegend=True,
             title="Aggregated Risk Factors"
         )
+
         st.plotly_chart(fig_risk, use_container_width=True)
-        
+
         st.markdown("### Risk Overview")
         st.table(pd.DataFrame({
             "Metric": ["Max Drawdown", "Current Volatility", "Average Daily Return"],
-            "Value": [f"{drawdown.min():.2f}%", f"{coin_df['Volatility'].iloc[-1]:.2f}%", f"{coin_df['Daily_Return'].mean()*100:.2f}%"]
+            "Value": [
+                f"{drawdown.min():.2f}%",
+                f"{coin_df['Volatility'].iloc[-1]:.2f}%",
+                f"{coin_df['Daily_Return'].mean()*100:.2f}%"
+            ]
         }))
+
         render_common_components(df, global_symbol)
-            # ================= FOOTER ================= #
-           st.markdown("### Risk Overview")
-        st.table(pd.DataFrame({
-            "Metric": ["Max Drawdown", "Current Volatility", "Average Daily Return"],
-            "Value": [f"{drawdown.min():.2f}%", f"{coin_df['Volatility'].iloc[-1]:.2f}%", f"{coin_df['Daily_Return'].mean()*100:.2f}%"]
-        }))
-        render_common_components(df, global_symbol)
-
-    # ================= FOOTER ================= #
-    st.markdown("---")
-
-    st.markdown("""
-    <div style="text-align:center; padding: 20px;">
-        <h2>👤 Mucherla Rajender Reddy</h2>
-        <p style="color: #888;">Data Analyst | Crypto Dashboard Developer</p>
-        <p>🚀 Developed & Hosted using Streamlit</p>
-        <p>
-            🔗 <a href="https://github.com/Rajender1709Reddy" target="_blank">GitHub</a>
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-
-
-if __name__ == "__main__":
-    main()
