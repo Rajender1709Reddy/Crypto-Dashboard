@@ -5,7 +5,7 @@ An interactive web dashboard for analyzing cryptocurrency prices using time seri
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/)
 
 ## 🚀 Live Demo
-Visit the live dashboard: **[Crypto Analytics Dashboard](https://share.streamlit.io/)** *(Update with your deployed link!)*
+Visit the live dashboard: **[Crypto Analytics Dashboard](https://share.streamlit.io/)** 
 
 ## 📈 Features
 - **Multi-Coin Support**: Bitcoin (BTC), Ethereum (ETH), and 15 other cryptocurrencies
